@@ -1,6 +1,7 @@
 #include <time.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 int extraMemoryAllocated;
 
@@ -19,10 +20,10 @@ void merge(int pData[], int l, int m, int r)
   int right_len = r - m;
 
   int *L = (int*) malloc(left_len*sizeof(int));
-  extraMemoryAllocated += left_len*sizeof(int);
+  extraMemoryAllocated += sizeof(L);
   
   int *R = (int*) malloc(right_len*sizeof(int));
-  extraMemoryAllocated += right_len*sizeof(int);
+  extraMemoryAllocated += sizeof(R);
   
   for (i = 0; i < left_len; i++)
     L[i] = pData[l + i];
